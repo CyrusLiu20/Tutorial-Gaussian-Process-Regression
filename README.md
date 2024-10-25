@@ -11,4 +11,4 @@ The key strengths of Gaussian Process Regression (GPR) lie in its flexibility an
 
 This repository illustrates the inner workings of Gaussian Process Regression using only NumPy for demonstration purposes and the following tutorial is adapted from this lecture note (https://cs229.stanford.edu/section/cs229-gaussian_processes.pdf).
 
-![Gaussian Process Diagram](pics/GPR Training.png)
+![Gaussian Process Diagram](GPR Training.png)

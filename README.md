@@ -1,4 +1,4 @@
-# Tutorial-Gaussian-Process-Regression
+# Tutorial-Gaussian-Process-Regression.ipynb (Tutorial 1/2)
 Gaussian Process Regression (GPR) differs from traditional linear regression, which aims to fit a fixed set of parameters for a given dimensionality of the data. In linear regression, the goal is to find the best-fit line (or hyperplane) that minimizes the error between the observed data and the model's predictions. Specifically, for an 
 -dimensional problem, a linear regression model fits 
  parameters (including an intercept).
@@ -12,4 +12,21 @@ The key strengths of Gaussian Process Regression (GPR) lie in its flexibility an
 This repository illustrates the inner workings of Gaussian Process Regression using only NumPy for demonstration purposes and the following tutorial is adapted from this lecture note (https://cs229.stanford.edu/section/cs229-gaussian_processes.pdf).
 
 <img src="GPR Training.png" alt="Gaussian Process Diagram" width="1500">
+
+
+# Tutorial-Bayesian-Optimization.ipynb (Tutorial 2/2)
+Optimizing a non-linear function $f(\mathbf{x})$ within a compact set $\mathcal{A}$ is of great scientific interest due to its versatility and real-world applicability. However, problems arise when the function has no closed-form analytical solution or is computationally expensive to evaluate. This gives rise to Bayesian optimization to mitigate such problems.
+
+$$
+\max _{\mathbf{x} \in \mathcal{A} \subset \mathbb{R}^d} f(\mathbf{x})
+$$
+
+Bayesian optimization is a surrogate-based optimization strategy, typically using a Gaussian process regression model to approximate the unknown function. This strategy is particularly useful when the objective function is difficult to evaluate. Initially, we have some prior beliefs about the objective function. As we accumulate more information, $\mathcal{D}_{1: t}$, we obtain a posterior distribution of the function, $P\left(f \mid \mathcal{D}{1}\right)$, which facilitates optimization.
+
+
+Given a Gaussian process regression model that provides a posterior mean $\mu(\mathbf{x})$ and a posterior covariance $\Sigma(\mathbf{x})$ for the objective function $f(\mathbf{x})$, the next sampling point $\mathbf{x}_{t+1}$ is chosen by maximizing an acquisition function $u(\mathbf{x}\mid \mathcal{D})$ that balances exploration and exploitation.
+
+$$
+\mathbf{x}_{\text{next}} = \underset{\mathbf{x} \in \mathcal{A}}{\arg\max} \, u(\mathbf{x}\mid \mathcal{D})
+$$
 

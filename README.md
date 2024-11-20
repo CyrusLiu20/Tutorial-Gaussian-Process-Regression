@@ -37,10 +37,5 @@ $$
 
 Batch Bayesian Optimization is an extension of Bayesian optimization that evaluates multiple points in parallel, making it ideal for scenarios where function evaluations are costly but computational resources allow parallelism. Like standard Bayesian optimization, it uses a surrogate model, typically a Gaussian process, to approximate the objective function and an acquisition function to select points balancing exploration and exploitation. However, in BBO, the acquisition function has to be modified to ensure efficient and diverse sampling. This approach significantly reduces the overall wall-clock time, making it valuable for tasks such as hyperparameter tuning, experimental design, and other computationally expensive optimization problems.
 
-Batch Bayesian Optimization can be mathematically defined as an optimization framework that aims to minimize an expensive-to-evaluate objective function $ f: \mathcal{X} \to \mathbb{R} $ by selecting a batch of $ q $ points $ \mathbf{X}_q = \{ \mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_q \} \subset \mathcal{X} $ for simultaneous evaluation at each iteration. The batch is selected by maximizing an acquisition function, $ \alpha(\mathbf{X} \mid \mathcal{D}) $. The goal is:
-$$
-\mathbf{X}_{batch}^* = \mathop{\operatorname{argmax}}\limits_{\mathbf{X}_{\text{batch}} \subset \mathcal{X}, |\mathbf{X}_{\text{batch}}| = q}
- \left[\alpha(\mathbf{X \mid \mathcal{D} })\right]
-$$
 
 <img src="pics/Batch Bayesian Optimisation.png" alt="Batch Bayesian Optimisation" width="1500">

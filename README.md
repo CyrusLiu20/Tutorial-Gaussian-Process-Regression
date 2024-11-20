@@ -1,4 +1,4 @@
-# Tutorial-Gaussian-Process-Regression.ipynb (Tutorial 1/2)
+# Tutorial-Gaussian-Process-Regression.ipynb (Tutorial 1/3)
 Gaussian Process Regression (GPR) differs from traditional linear regression, which aims to fit a fixed set of parameters for a given dimensionality of the data. In linear regression, the goal is to find the best-fit line (or hyperplane) that minimizes the error between the observed data and the model's predictions. Specifically, for an 
 -dimensional problem, a linear regression model fits 
  parameters (including an intercept).
@@ -11,10 +11,10 @@ The key strengths of Gaussian Process Regression (GPR) lie in its flexibility an
 
 This repository illustrates the inner workings of Gaussian Process Regression using only NumPy for demonstration purposes and the following tutorial is adapted from this lecture note (https://cs229.stanford.edu/section/cs229-gaussian_processes.pdf).
 
-<img src="GPR Training.png" alt="Gaussian Process Diagram" width="1500">
+<img src="pics/GPR Training.png" alt="Gaussian Process Diagram" width="1500">
 
 
-# Tutorial-Bayesian-Optimization.ipynb (Tutorial 2/2)
+# Tutorial-Bayesian-Optimization.ipynb (Tutorial 2/3)
 Optimizing a non-linear function $f(\mathbf{x})$ within a compact set $\mathcal{A}$ is of great scientific interest due to its versatility and real-world applicability. However, problems arise when the function has no closed-form analytical solution or is computationally expensive to evaluate. This gives rise to Bayesian optimization to mitigate such problems.
 
 $$
@@ -30,3 +30,13 @@ $$
 \mathbf{x}_{\text{next}} = \underset{\mathbf{x} \in \mathcal{A}}{\arg\max} \, u(\mathbf{x}\mid \mathcal{D})
 $$
 
+
+# Tutorial-Batch-Bayesian-Optimization.ipynb (Tutorial 3/3)
+
+Batch Bayesian Optimization is an extension of Bayesian optimization that evaluates multiple points in parallel, making it ideal for scenarios where function evaluations are costly but computational resources allow parallelism. Like standard Bayesian optimization, it uses a surrogate model, typically a Gaussian process, to approximate the objective function and an acquisition function to select points balancing exploration and exploitation. However, in BBO, the acquisition function has to be modified to ensure efficient and diverse sampling. This approach significantly reduces the overall wall-clock time, making it valuable for tasks such as hyperparameter tuning, experimental design, and other computationally expensive optimization problems.
+
+Batch Bayesian Optimization can be mathematically defined as an optimization framework that aims to minimize an expensive-to-evaluate objective function $ f: \mathcal{X} \to \mathbb{R} $ by selecting a batch of $ q $ points $ \mathbf{X}_q = \{ \mathbf{x}_1, \mathbf{x}_2, \ldots, \mathbf{x}_q \} \subset \mathcal{X} $ for simultaneous evaluation at each iteration. The batch is selected by maximizing an acquisition function, $ \alpha(\mathbf{X} \mid \mathcal{D}) $. The goal is:
+$$
+\mathbf{X}_{batch}^* = \mathop{\operatorname{argmax}}\limits_{\mathbf{X}_{\text{batch}} \subset \mathcal{X}, |\mathbf{X}_{\text{batch}}| = q}
+ \left[\alpha(\mathbf{X \mid \mathcal{D} })\right]
+$$

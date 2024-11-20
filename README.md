@@ -30,6 +30,8 @@ $$
 \mathbf{x}_{\text{next}} = \underset{\mathbf{x} \in \mathcal{A}}{\arg\max} \, u(\mathbf{x}\mid \mathcal{D})
 $$
 
+<img src="pics/Bayesian Optimisation.png" alt="Bayesian Optimisation" width="1500">
+
 
 # Tutorial-Batch-Bayesian-Optimization.ipynb (Tutorial 3/3)
 
@@ -40,3 +42,5 @@ $$
 \mathbf{X}_{batch}^* = \mathop{\operatorname{argmax}}\limits_{\mathbf{X}_{\text{batch}} \subset \mathcal{X}, |\mathbf{X}_{\text{batch}}| = q}
  \left[\alpha(\mathbf{X \mid \mathcal{D} })\right]
 $$
+
+<img src="pics/Batch Bayesian Optimisation.png" alt="Batch Bayesian Optimisation" width="1500">
